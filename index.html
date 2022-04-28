@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>engl254 - subs. abuse</title>
+
+    <!-- GSAP Core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+
+    <!-- GSAP ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+
+    <!-- Google API -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        font-family: 'Radio Canada', sans-serif;
+        font-size: 18px;
+        overscroll-behavior: none;
+        height: 100vh;
+        overflow-x: hidden;
+    }
+
+    .introduction-container {
+        height: 90vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .introduction-header {
+        font-size: 2.5rem;
+    }
+
+    .introduction-caption {
+        font-size: 1.25rem;
+    }
+
+    .introduction-wave {
+        animation-name: wave-animation;
+        animation-iteration-count: infinite;
+        animation-duration: 2.5s;
+        animation-delay: 0.5s;
+        transform-origin: 70% 70%;
+        display: inline-block;
+        transition: 0.5s ease-in;
+    }
+
+    @keyframes wave-animation {
+        0% {
+            transform: rotate(0.0deg)
+        }
+
+        10% {
+            transform: rotate(14.0deg)
+        }
+
+        20% {
+            transform: rotate(-8.0deg)
+        }
+
+        30% {
+            transform: rotate(14.0deg)
+        }
+
+        40% {
+            transform: rotate(-4.0deg)
+        }
+
+        50% {
+            transform: rotate(10.0deg)
+        }
+
+        60% {
+            transform: rotate(0.0deg)
+        }
+
+        100% {
+            transform: rotate(0.0deg)
+        }
+    }
+</style>
+
+<body>
+
+    <!-- introduction section -->
+    <section class="introduction">
+        <div class="introduction-container panel">
+            <h2 class="introduction-header">Hi, I'm Trey! Welcome to my ENGL254 Multimodal Project! <span
+                    id="introduction-wave" class="introduction-wave">👋</span></h2>
+            <p class="introduction-caption">In this website, we will explore the different dangers of substance
+                abuse,
+                especially for those who are
+                in college.</p>
+            <p>[ Work in Progress :( ]</p>
+        </div>
+    </section>
+
+    <!-- Graphic Section -->
+
+    <!-- Video Section -->
+</body>
+
+
+<!-- GSAP ScrollTrigger -->
+<script>
+    // gsap.registerPlugin(ScrollTrigger);
+
+    // gsap.to(".container", {
+    //     xPercent: -100,
+    //     x: () => innerWidth,
+    //     ease: "none",
+    //     scrollTrigger: {
+    //         trigger: ".container",
+    //         start: "top top",
+    //         end: () => innerWidth * 3,
+    //         scrub: true,
+    //         pin: true,
+    //         invalidateOnRefresh: true,
+    //         anticipatePin: 1
+    //     }
+    // });
+</script>
+
+
+</html>
