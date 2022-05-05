@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/icon.svg">
     <title>engl254 - subs. abuse</title>
 
     <!-- GSAP Core -->
@@ -19,32 +20,90 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
 </head>
 <style>
     body {
         font-family: 'Radio Canada', sans-serif;
         font-size: 18px;
-        overscroll-behavior: none;
-        height: 100vh;
-        overflow-x: hidden;
+        overflow: hidden;
+        background-color: rgb(243, 243, 243);
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        /* background: url("https://www.toptal.com/designers/subtlepatterns/uploads/dot-grid.png") ; */
+    }
+
+    /* navbar styles */
+    .navbar-container {
+        width: 100%;
+        display: flex;
+        flex: row;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar-link {
+        text-decoration: none;
+        color: #333;
+        font-size: 16px;
+        transition: 0.25s ease-in-out;
+        margin: 5px;
+        border-bottom: 1px solid transparent;
+    }
+
+    .navbar-link:hover {
+        color: #c661cf;
+        border-bottom: 1px solid #c661cf;
+        transition: 0.25s ease-in-out;
+    }
+
+    /* title styles */
+    .title-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    .title-title {
+        font-weight: 800;
+        font-size: 3rem;
+    }
+
+    .container {
+        background-color: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* height: 90vh; */
     }
 
     .introduction-container {
-        height: 90vh;
-        width: 100vw;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
+        padding: 15px;
+        height: 100%;
+        overflow-y: scroll !important;
+        background-color: inherit;
     }
 
     .introduction-header {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
+        font-weight: 800;
     }
 
     .introduction-caption {
-        font-size: 1.25rem;
+        font-size: 1.15rem;
     }
 
     .introduction-wave {
@@ -55,6 +114,299 @@
         transform-origin: 70% 70%;
         display: inline-block;
         transition: 0.5s ease-in;
+    }
+
+    .slide-btn {
+        color: #fff;
+        text-decoration: none;
+        border: 2px solid transparent;
+        background-color: #333;
+        border-radius: 8px;
+        margin: 0px 5px;
+        padding: 8px;
+        transition: 0.25s ease-in-out;
+    }
+
+    .slide-btn:hover {
+        color: #333;
+        border: 2px solid #333;
+        background-color: transparent;
+        transition: 0.25s ease-in-out;
+    }
+
+    .slide-btn-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* about slide styles */
+    .about-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+        height: 100%;
+        overflow-y: scroll !important;
+    }
+
+    .about-header {
+        font-weight: 800;
+        font-size: 2rem;
+    }
+
+    .about-subheader {
+        font-weight: 800;
+        font-size: 1.85rem;
+        margin-top: 2rem;
+    }
+
+    .about-caption {
+        font-size: 1.25rem;
+    }
+
+    .about-image {
+        margin-bottom: 3rem;
+    }
+
+    .about-list {
+        text-align: center;
+        list-style-type: none;
+    }
+
+    .about-list li {
+        margin-bottom: 0.5rem;
+    }
+
+    .about-list-item {
+        font-size: 1rem;
+        transition: 0.25s ease-in-out;
+    }
+
+    .about-list-item:hover {
+        transform: scale(105%);
+        transition: 0.25s ease-in-out;
+    }
+
+    .about-link {
+        color: black;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: 0.25s ease-in-out;
+    }
+
+    .about-link:hover {
+        color: darkblue;
+        transition: 0.25s ease-in-out;
+        border-bottom: 1px solid darkblue;
+    }
+
+    /* graphics slide styles */
+    .graphics-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+        height: 100%;
+        overflow-y: scroll !important;
+    }
+
+    .graphics-subcontainer {
+        display: inherit;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .graphics-subcontainer img {
+        margin: 1rem 0.5rem;
+    }
+
+    .graphics-header {
+        font-weight: 800;
+        font-size: 2rem;
+    }
+
+    .graphics-subheader {
+        font-weight: 800;
+        color: blue;
+        font-size: 1.75rem;
+        cursor: pointer;
+        transition: 0.25s ease-in-out;
+        margin: 1.75rem 0;
+    }
+
+    .graphics-subheader:hover {
+        color: darkblue;
+        transition: 0.25s ease-in-out;
+    }
+
+    .graphics-caption {
+        font-size: 1.25rem;
+    }
+
+    /* video slide styles */
+    .video-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+        overflow-y: scroll !important;
+    }
+
+    .video-header {
+        font-weight: 800;
+        font-size: 2rem;
+    }
+
+    .video-caption {
+        font-size: 1rem;
+    }
+
+    .video-subheader {
+        margin-top: 2rem;
+        font-size: 1.75rem;
+        font-weight: 800;
+    }
+
+    .video-subheader hr {
+        color: #88c8ce;
+    }
+
+    .video-credit {
+        font-size: 1rem;
+        color: blue;
+        border-bottom: 1px solid transparent;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .video-credit:hover {
+        color: darkblue;
+        border-bottom: 1px solid darkblue;
+        transition: 0.25s ease-in-out;
+    }
+
+    /* sources slide styles */
+    .sources-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+        overflow-y: scroll !important;
+    }
+
+    .sources-container img {
+        transform: scale(115%);
+    }
+
+    .sources-header {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
+    }
+
+    .sources-caption {
+        font-size: 1.25rem;
+        text-align: right;
+    }
+
+    .sources-list {
+        list-style-type: none;
+    }
+
+    .sources-link {
+        font-size: 1rem;
+        text-decoration: none;
+        color: blue;
+        border-bottom: 1px solid transparent;
+        transition: 0.25s ease-in-out;
+    }
+
+    .sources-link:hover {
+        transform: scale(105%);
+        color: darkblue;
+        border-bottom: 1px solid darkblue;
+        transition: 0.25s ease-in-out;
+    }
+
+    .btn-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 15px 0;
+    }
+
+    .read-more {
+        font-size: 0.875rem;
+        color: blue;
+        cursor: pointer;
+        border-bottom: 1px solid transparent;
+        transition: 0.25s ease-in-out;
+        text-decoration: none;
+    }
+
+    .read-more:hover {
+        color: darkblue;
+        border-bottom: 1px solid darkblue;
+        transition: 0.25s ease-in-out;
+    }
+
+    #introduction-btn {
+        color: #fff0d4;
+        background-color: #ffc558
+    }
+
+    #introduction-btn:hover {
+        border: 2px solid #edaa2f;
+        background-color: transparent;
+        color: #edaa2f;
+    }
+
+    #about-btn {
+        color: #ffe9e7;
+        background-color: #ff6958
+    }
+
+    #about-btn:hover {
+        border: 2px solid #fa523f;
+        background-color: transparent;
+        color: #fa523f;
+    }
+
+    #graphics-btn {
+        color: #e9f9e8;
+        background-color: #97c1a9;
+    }
+
+    #graphics-btn:hover {
+        border: 2px solid #7ac49a;
+        background-color: transparent;
+        color: #7ac49a;
+    }
+
+    #video-btn {
+        color: #e7fdff;
+        background-color: #88c8ce;
+    }
+
+    #video-btn:hover {
+        border: 2px solid #6ec2ca;
+        background-color: transparent;
+        color: #6ec2ca;
+    }
+
+    #sources-btn {
+        color: #fde7ff;
+        background-color: #c661cf;
+    }
+
+    #sources-btn:hover {
+        border: 2px solid #c661cf;
+        background-color: transparent;
+        color: #c661cf;
     }
 
     @keyframes wave-animation {
@@ -90,48 +442,393 @@
             transform: rotate(0.0deg)
         }
     }
+
+    .carousel-item {
+        height: 70vh;
+        overflow-y: scroll !important;
+    }
+
+    .unl-container {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+
+    .unl {}
 </style>
 
 <body>
 
-    <!-- introduction section -->
-    <section class="introduction">
-        <div class="introduction-container panel">
-            <h2 class="introduction-header">Hi, I'm Trey! Welcome to my ENGL254 Multimodal Project! <span
-                    id="introduction-wave" class="introduction-wave">👋</span></h2>
-            <p class="introduction-caption">In this website, we will explore the different dangers of substance
-                abuse,
-                especially for those who are
-                in college.</p>
-            <p>[ Work in Progress! :( ]</p>
+    <!-- navbar -->
+    <section class="navbar">
+        <div class="navbar-container">
+            <a class="navbar-link" href="trnitu.github.io" target="_blank">trey turner</a>
+            <a class="navbar-link" href="https://catalog.unl.edu/undergraduate/courses/engl/"
+                target="_blank">engl254</a>
         </div>
     </section>
 
-    <!-- Graphic Section -->
+    <!-- title -->
+    <section class="title">
+        <div class="title-container">
+            <h1 class="title-title">ENGL254 Multimodal Project</h1>
+        </div>
+    </section>
 
-    <!-- Video Section -->
+    <div id="carousel" class="container carousel slide">
+        <div class="carousel-inner">
+
+            <!-- introduction -->
+            <div class="carousel-item active">
+                <div class="introduction-container">
+                    <h2 class="introduction-header">Hi, I'm Trey! Welcome to my ENGL254 Multimodal Project! <span
+                            id="introduction-wave" class="introduction-wave">👋</span></h2>
+                    <p class="introduction-caption">In this website you can explore the different dangers and statistics
+                        of substance
+                        abuse, especially for those who are in college.
+                    <p class="introduction-caption">Clicking the buttons below will allow you to navigate through
+                        the different modes available!</p>
+                </div>
+            </div>
+
+            <!-- about -->
+            <div class="carousel-item">
+                <div class="about-container">
+                    <h3 class="about-header" style="margin-bottom: 0;">About This Project
+                        <hr>
+                    </h3>
+                    <img class="about-image" style="height: 153px; width: 207px;" src="/images/about1.png">
+                    <p class="about-caption">In this section of the website, you can read and learn more about substance
+                        abuse, its effects, and statistics in college-aged students.</p>
+
+                    <!-- spreading awareness -->
+                    <h3 class="about-header" style="font-size: 2rem; margin-top: 2rem;"> Spreading Awareness
+                        <hr>
+                    </h3>
+                    <div class="row" style="margin-top: 1rem;">
+                        <div class="col">
+                            <img src="/images/about2.png" alt="">
+                        </div>
+                        <div class="col">
+                            <p style="text-align: right; font-size: 1rem !important;" class="about-caption">This project
+                                puts forth into the
+                                spotlight a very prevalent and prominent issue in our modern collegiate world where
+                                alcohol and drugs have taken the wheel of many students that leads to their undoing. My
+                                purpose? Spreading awareness. Stating the facts. Opening the eyes to everyone,
+                                namely college students the dangers of substance abuse in a collegiate setting and what
+                                could happen to those who fall prey to addiction or even just a moderate consumption.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- effects -->
+                    <h3 class="about-subheader"> The Dangers of Substances
+                        <hr>
+                    </h3>
+                    <p class="about-caption">Obviously we are aware that there are negative effects when it comes to
+                        consuming alcohol or drugs. Below I have provided a list
+                        that I have researched from multiple research organizations (see the sources section) to show
+                        the impact that substances can take on a student's life:
+                    <ul class="about-list">
+                        <li class="about-list-item">Academics and grades will start to decline</li>
+                        <li class="about-list-item">Increased probability for car-related accidents</li>
+                        <li class="about-list-item">More prone to be a victim of an overdose</li>
+                        <li class="about-list-item">Unstable mental health state (depression, anxiety, withdrawal,
+                            personality disorders)</li>
+                        <li class="about-list-item">Higher chances for family crises and dysfunctions</li>
+                        <li class="about-list-item">Will endure more of a financial struggle</li>
+                        <li class="about-list-item">More likely to get into legal trouble</li>
+                    </ul>
+                    </p>
+
+                    <!-- statistics -->
+                    <h3 class="about-subheader">
+                        Substance Abuse Statistics
+                        <hr>
+                    </h3>
+                    <p class="about-caption">There are some scary statistics regarding substance abuse on a college
+                        campus and to help spread awareness and prevalence of this issue below will have some statistics
+                        on this issue.</p>
+
+                    <div class="row" style="margin-top: 1.25rem;">
+                        <div class="col">
+                            <img src="/images/about3.png" alt="" style="width: 398px; height: 305px;">
+                        </div>
+                        <div class="col">
+                            <ul class="about-list" style="font-size: 1rem; text-align: right;">
+                                <li><a href="https://nida.nih.gov/drug-topics/trends-statistics/infographics/drug-alcohol-use-in-college-age-adults-in-2018"
+                                        target="_blank" class="about-link">Around 28% of students engaged in binge
+                                        drinking in 2018</a></li>
+                                <li><a href="https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/alcohol-facts-and-statistics"
+                                        target="_blank" class="about-link">Over 14 million of the age of 12 or older has
+                                        had Alcohol Use Disorder</a></li>
+                                <li><a href="https://americanaddictioncenters.org/rehab-guide/college" target="_blank"
+                                        class="about-link">Above 20% of students were exposed to cocaine in the year of
+                                        2021</a></li>
+                                <li><a href="https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/alcohol-facts-and-statistics"
+                                        target="_blank" class="about-link">In 2010, Alcohol misuse cost the United
+                                        States $249 billion</a></li>
+                                <li><a href="https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/alcohol-facts-and-statistics"
+                                        target="_blank" class="about-link">Approximately 3,000 individuals under the age
+                                        of 21 have died as a result of alcohol consumption</a></li>
+                                <li><a href="https://www.turnbridge.com/news-events/latest-articles/most-commonly-used-drugs-by-college-students/#"
+                                        target="_blank" class="about-link">In 2016, nearly 40% of students have used
+                                        marijuana that year</a></li>
+                                <li><a href="https://financesonline.com/college-drug-abuse-statistics/" target="_blank"
+                                        class="about-link">Only about 2.3% of college students receive mental health
+                                        services or treatment in 2019-2020 (down from 4.9% in 2010-2011)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- graphics -->
+            <div class="carousel-item">
+                <div class="graphics-container">
+                    <h2 class="graphics-header">
+                        Substance Abuse Graphics
+                        <hr>
+                    </h2>
+                    <p class="graphics-caption">
+                        In this section you can explore the different graphics. To get started, click on one of the
+                        following from the list below and it will expand the graphics and click the list items again and
+                        it will close!
+                    </p>
+
+                    <!-- knowing the norms -->
+                    <h3 class="graphics-subheader" data-bs-toggle="collapse" aria-expanded="false" aria-controls="norms"
+                        data-bs-target="#norms">
+                        UNL's 'Knowing the Norms'
+                        <hr>
+                    </h3>
+
+                    <div id="norms" class="collapse row graphics-subcontainer">
+                        <a href="https://resilience.unl.edu/alcohol-and-other-drug-prevention" target="_blank">
+                            <img class="col-6"
+                                src="https://studentaffairs.unl.edu/campaigns/081617_Leadership_ByExample.jpg"
+                                style="width: 443px; height: 249px;" alt="">
+                            <img class="col-6"
+                                src="https://studentaffairs.unl.edu/campaigns/083017_Alcohol_PeerPressure.jpg"
+                                style="width: 443px; height: 249px;" alt="">
+                            <img class="col-6"
+                                src="https://studentaffairs.unl.edu/campaigns/083017_BystanderIntervention_SafeWelcomeCampus.jpg"
+                                style="width: 443px; height: 249px;" alt="">
+                            <img class="col-6"
+                                src="https://studentaffairs.unl.edu/campaigns/083017_Friends_Intramurals.jpg"
+                                style="width: 443px; height: 249px;" alt="">
+                            <img class="col-6"
+                                src="https://studentaffairs.unl.edu/campaigns/091317_Academics_ReviewNotes.jpg"
+                                style="width: 443px; height: 249px;" alt="">
+                            <img class="col-6" src="https://studentaffairs.unl.edu/campaigns/091317_Homesick.jpg"
+                                style="width: 443px; height: 249px;" alt="">
+                            <img class="col-6"
+                                src="https://studentaffairs.unl.edu/campaigns/091317_Service_VolunteerWeekly.jpg"
+                                style="width: 443px; height: 249px;" alt="">
+                            <img class="col-6"
+                                src="https://studentaffairs.unl.edu/campaigns/092717_Alcohol_BlackingOut.jpg"
+                                style="width: 443px; height: 249px;" alt="">
+                            <img class="col-6" src="https://studentaffairs.unl.edu/campaigns/092717_CareerPath.jpg"
+                                style="width: 443px; height: 249px;" alt="">
+                            <img class="col-6"
+                                src="https://studentaffairs.unl.edu/campaigns/081617_Alcohol_CollegeExperience.jpg"
+                                style="width: 443px; height: 249px;" alt="">
+                        </a>
+                    </div>
+
+                    <!-- husker playblook -->
+                    <h3 class="graphics-subheader" data-bs-toggle="collapse" aria-expanded="false"
+                        aria-controls="playbook" data-bs-target="#playbook">
+                        UNL's 'Husker Playbook'
+                        <hr>
+                    </h3>
+                    <div id="playbook" class="collapse row graphics-subcontainer">
+                        <a href="https://resilience.unl.edu/alcohol-and-other-drug-prevention" target="_blank">
+                            <img class="col-6" src="https://studentaffairs.unl.edu/campaigns/Poster_Kickoff.jpg"
+                                style="width: 396px; height: 306px;" alt="">
+                            <img class="col-6" src="https://studentaffairs.unl.edu/campaigns/Poster_Reverse.jpg"
+                                style="width: 396px; height: 306px;" alt="">
+                            <img class="col-6" src="https://studentaffairs.unl.edu/campaigns/Poster_3-4Defense.jpg"
+                                style="width: 396px; height: 306px;" alt="">
+                            <img class="col-6" src="https://studentaffairs.unl.edu/campaigns/Poster_Interception.jpg"
+                                style="width: 396px; height: 306px;" alt="">
+                            <img class="col-6" src="https://studentaffairs.unl.edu/campaigns/Poster_Offsides.jpg"
+                                style="width: 396px; height: 306px;" alt="">
+                            <img class="col-6" src="https://studentaffairs.unl.edu/campaigns/Poster_PersonalFoul.jpg"
+                                style="width: 396px; height: 306px;" alt="">
+                            <img class="col-6" src="https://studentaffairs.unl.edu/campaigns/Poster_RedZone.jpg"
+                                style="width: 396px; height: 306px;" alt="">
+                            <img class="col-6" src="https://studentaffairs.unl.edu/campaigns/Poster_Halftime.jpg"
+                                style="width: 396px; height: 306px;" alt="">
+                            <img class="col-6" src="https://studentaffairs.unl.edu/campaigns/Poster_OptionPlay.jpg"
+                                style="width: 396px; height: 306px;" alt="">
+                            <img class="col-6" src="https://studentaffairs.unl.edu/campaigns/Poster_Defense.jpg"
+                                style="width: 396px; height: 306px;" alt="">
+                            <img class="col-6" src="https://studentaffairs.unl.edu/campaigns/Poster_PassProtection.jpg"
+                                style="width: 396px; height: 306px;" alt="">
+                            <img class="col-6" src="https://studentaffairs.unl.edu/campaigns/Poster_Huddle.jpg"
+                                style="width: 396px; height: 306px;" alt="">
+                            <img class="col-6" src="https://studentaffairs.unl.edu/campaigns/Poster_TakeaKnee.jpg"
+                                style="width: 396px; height: 306px;" alt="">
+                            <img class="col-6" src="https://studentaffairs.unl.edu/campaigns/Poster_Safety.jpg"
+                                style="width: 396px; height: 306px;" alt="">
+                        </a>
+                    </div>
+
+                    <!-- research.com -->
+                    <h3 class="graphics-subheader" data-bs-toggle="collapse" aria-expanded="false"
+                        aria-controls="research" data-bs-target="#research">
+                        Research.com's Graphics
+                        <hr>
+                    </h3>
+                    <div id="research" class="collapse row graphics-subcontainer">
+                        <a href="https://research.com/education/college-drug-abuse-statistics" target="_blank">
+                            <img class="col-6"
+                                src="https://s2.research.com/wp-content/uploads/2020/09/11131811/College-Drug-Abuse-Statistics-Image-1-768x469.jpg"
+                                style="width: 480px; height: 294px;" alt="">
+                            <img class="col-6"
+                                src="https://s2.research.com/wp-content/uploads/2020/09/11131817/College-Drug-Abuse-Statistics-Image-2-768x469.jpg"
+                                style="width: 480px; height: 294px;" alt="">
+                            <img class="col-6"
+                                src="https://s2.research.com/wp-content/uploads/2020/09/11131823/College-Drug-Abuse-Statistics-Image-3-768x469.jpg"
+                                style="width: 480px; height: 294px;" alt="">
+                            <img class="col-6"
+                                src="https://s2.research.com/wp-content/uploads/2020/09/11131829/College-Drug-Abuse-Statistics-Image-4-768x469.jpg"
+                                style="width: 480px; height: 294px;" alt="">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- video -->
+            <div class="carousel-item">
+                <div class="video-container">
+                    <h2 class="video-header">Videos About Substance Abuse
+                        <hr>
+                    </h2>
+                    <p class="video-caption">In this section there are various videos for you to explore regarding
+                        substance abuse. Please take a look at a few of these as some of these are important to help
+                        understand what substance abuse means and other essential things to know regarding this issue.
+                    </p>
+                    <p class="video-caption" style="font-style: italic;">Please note: none of these videos are mine and
+                        all credit goes to their respective organizations and youtube channels!</p>
+
+                    <h3 class="video-subheader">Nico Doorn's Hiding in Plain Sight | TEDxVanderbiltUniversity
+                        <hr>
+                    </h3>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZKGYjWmrl4w"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/channel/UCsT0YIqwnpJCM-mx7-gSA4Q" target="_blank"
+                        class="video-credit">Credit: TEDx Talks</a>
+
+                    <h3 class="video-subheader">'Academic Doping' On the Rise
+                        <hr>
+                    </h3>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VqWnumbraI4"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/channel/UChDKyKQ59fYz3JO2fl0Z6sg" class="video-credit">Credit:
+                        TODAY</a>
+
+                    <h3 class="video-subheader">Teen Health: Substance Use and Abuse
+                        <hr>
+                    </h3>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/6fmhLcYSn-Y"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/channel/UCAd9yt013dP4c_cVH3Te9oQ" target="_blank"
+                        class="video-credit">Credit: Penn State PRO Wellness</a>
+
+                    <h3 class="video-subheader">How Addiction Happens
+                        <hr>
+                    </h3>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/HDfSx_Q7_Yk"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/channel/UCEPKCkq1Kb0EgANxP0RQikw" target="_blank"
+                        class="video-credit">Credit: How Addiction Happens</a>
+
+                    <h3 class="video-subheader">Lauren Windle's Lessons a Drug Addict Can Teach You |
+                        TEDxSurreyUniversity
+                        <hr>
+                    </h3>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ytVxYTavE1U"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/channel/UCsT0YIqwnpJCM-mx7-gSA4Q" target="_blank"
+                        class="video-credit">Credit: TEDx Talks</a>
+                </div>
+            </div>
+
+            <!-- sources -->
+            <!--  -->
+            <!-- https://nida.nih.gov/drug-topics/trends-statistics/infographics/drug-alcohol-use-in-college-age-adults-in-2018 -->
+            <div class="carousel-item">
+                <div class="sources-container">
+                    <h2 class="sources-header">My Project's Sources
+                        <hr>
+                    </h2>
+                    <div class="row" style="margin-bottom: 2px !important;">
+                        <div class="col">
+                            <img src="/images/sources1.png" alt="">
+                        </div>
+                        <div class="col">
+                            <p class="sources-caption">My project was made possible by all the research that I was able
+                                to do; all my research was done by these sources listed below, feel free to
+                                check them out to get more informed on addiction and abuse of substance in college
+                                students!
+                            </p>
+                        </div>
+                    </div>
+
+                    <ul class="sources-list">
+                        <li><a href="https://resilience.unl.edu/" target="_blank" class="sources-link">University of
+                                Nebraska-Lincoln Big Red Resilience</a></li>
+                        <li><a href="https://research.com/education/college-drug-abuse-statistics" target="_blank"
+                                class="sources-link">Research.com's College Drug Abuse Statistics</a></li>
+                        <li><a href="https://ojjdp.ojp.gov/sites/g/files/xyckuh176/files/pubs/drugid/ration-03.html"
+                                target="_blank" class="sources-link">Office of Juvenile Justice and Deliquency
+                                Prevention</a></li>
+                        <li><a href="https://americanaddictioncenters.org/rehab-guide/college" target="_blank"
+                                class="sources-link">American Addiction Centers</a></li>
+                        <li><a href="https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/alcohol-facts-and-statistics"
+                                target="_blank" class="sources-link">National Institute on Alcohol Abuse and
+                                Alcoholism</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div> <!-- carousel inner-->
+    </div> <!-- carousel -->
+
+    <div class="btn-container">
+        <a class="slide-btn" id="introduction-btn" type="button" data-bs-target="#carousel"
+            data-bs-slide-to="0">Intro</a>
+        <a class="slide-btn" id="about-btn" type="button" data-bs-target="#carousel" data-bs-slide-to="1">About</a>
+        <a class="slide-btn" id="graphics-btn" type="button" data-bs-target="#carousel" data-bs-slide-to="2"
+            href="#carousel">Graphics</a>
+        <a class="slide-btn" id="video-btn" type="button" data-bs-target="#carousel" data-bs-slide-to="3"
+            href="#carousel">Videos</a>
+        <a class="slide-btn" id="sources-btn" type="button" data-bs-target="#carousel" data-bs-slide-to="4">Sources</a>
+    </div>
+
+
 </body>
 
-
-<!-- GSAP ScrollTrigger -->
-<script>
-    // gsap.registerPlugin(ScrollTrigger);
-
-    // gsap.to(".container", {
-    //     xPercent: -100,
-    //     x: () => innerWidth,
-    //     ease: "none",
-    //     scrollTrigger: {
-    //         trigger: ".container",
-    //         start: "top top",
-    //         end: () => innerWidth * 3,
-    //         scrub: true,
-    //         pin: true,
-    //         invalidateOnRefresh: true,
-    //         anticipatePin: 1
-    //     }
-    // });
-</script>
-
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
 
 </html>
