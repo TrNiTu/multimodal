@@ -35,7 +35,7 @@
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        /* background: url("https://www.toptal.com/designers/subtlepatterns/uploads/dot-grid.png") ; */
+        animation: fadeIn 0.75s ease-in-out;
     }
 
     /* navbar styles */
@@ -409,6 +409,15 @@
         color: #c661cf;
     }
 
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
     @keyframes wave-animation {
         0% {
             transform: rotate(0.0deg)
@@ -464,7 +473,7 @@
     <!-- navbar -->
     <section class="navbar">
         <div class="navbar-container">
-            <a class="navbar-link" href="trnitu.github.io" target="_blank">trey turner</a>
+            <a class="navbar-link" href="https://trnitu.github.io" target="_blank">trey turner</a>
             <a class="navbar-link" href="https://catalog.unl.edu/undergraduate/courses/engl/"
                 target="_blank">engl254</a>
         </div>
